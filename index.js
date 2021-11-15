@@ -136,7 +136,7 @@ async function run() {
       res.json(result);
     });
 
-    //making a user admin
+    //making an admin
 
     app.put("/users/admin", async (req, res) => {
       const user = req.body;
@@ -147,7 +147,7 @@ async function run() {
       res.json(result);
     });
 
-    // Manage All Orders Get Api
+    // Manage All Orders
 
     app.get("/manageAllOrders", async (req, res) => {
       const cursor = purchasedCarsCollection.find({});
@@ -156,7 +156,7 @@ async function run() {
       res.send(result);
     });
 
-    // Manage All Orders , Delete specific purchased
+    // Manage All Orders by Delete order
 
     app.delete("/deletePurchasedCars/:purchasedId", async (req, res) => {
       const query = {
@@ -193,15 +193,17 @@ async function run() {
       res.json(carsResult);
     });
 
-    // Manage Product where get all the data
+    // Manage Product
   } finally {
     // await client.close();
   }
 }
 
+//last step
+
 run().catch(console.dir);
 app.get("/", (req, res) => {
-  res.send("Hello car!");
+  res.send("Welocme to Forza Horizon");
 });
 
 app.listen(port, () => {
